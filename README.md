@@ -24,6 +24,13 @@ npm install
 
 npm run serve 
 
+# Exemplo de requisicao no front 
+get projeto com id=project1:
+http://localhost:8081/projeto/project1
+
+resposta:
+{"_id":"project1","__v":0,"avaliacao":null,"category":"Química/Geografia","description":"Demonstração de uma erupção vulcânica usando bicarbonato de sódio e vinagre, explorando a química da reação ácido-base e a formação de gases. O projeto visa ilustrar princípios geológicos e químicos de forma visual e interativa.","image":"https://placehold.co/400x300/f8f0e3/6b4e39?text=Vulcão+Químico","materials":["Bicarbonato de Sódio","Vinagre","Detergente","Corante Alimentício","Modelo de Vulcão"],"participants":["Sofia Rocha","Tiago Alves"],"title":"Vulcão em Miniatura: Reação Ácido-Base"}
+
 # Backend
 
 ## Instalacao
@@ -51,13 +58,6 @@ npm start
 6 projetos:
 
 id: project1 ... project6
-
-# Exemplo de requisicao 
-get projeto com id=project1:
-http://localhost:8081/projeto/project1
-
-resposta:
-{"_id":"project1","__v":0,"avaliacao":null,"category":"Química/Geografia","description":"Demonstração de uma erupção vulcânica usando bicarbonato de sódio e vinagre, explorando a química da reação ácido-base e a formação de gases. O projeto visa ilustrar princípios geológicos e químicos de forma visual e interativa.","image":"https://placehold.co/400x300/f8f0e3/6b4e39?text=Vulcão+Químico","materials":["Bicarbonato de Sódio","Vinagre","Detergente","Corante Alimentício","Modelo de Vulcão"],"participants":["Sofia Rocha","Tiago Alves"],"title":"Vulcão em Miniatura: Reação Ácido-Base"}
 
 # ngrok
 
