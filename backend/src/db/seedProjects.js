@@ -6,6 +6,9 @@ const Projeto = require("./models/model");
 async function seedDB() {
   console.log("****** SEEDING PROJETOS *******")
     //   se nao exitir projeto com o id do seed insere um novo, se existe atualiza
+    seedProjetos.forEach(p => p._id = p.id); // natalia tive que mudar aqui! pq n tava carregando os projetos no meu db
+
+
   const bulkOps = seedProjetos.map(proj => ({
         updateOne: {
             filter: { _id: proj._id }, 
