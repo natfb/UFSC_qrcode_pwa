@@ -7,9 +7,9 @@ const QRCode = require('qrcode');
   const outDir = path.resolve(__dirname, 'qrcodes');
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
   for (let i = 1; i <= 6; i++) {
-    const id_img = `project${i}`;
-    const id = `http://localhost:8081/projeto/project${i}`;
-    const filePath = path.join(outDir, `${id_img}.png`);
+    const id = `project${i}`;
+    
+    const filePath = path.join(outDir, `${id}.png`);
     try {
       await QRCode.toFile(filePath, id, {
         errorCorrectionLevel: 'H',
