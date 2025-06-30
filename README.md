@@ -79,6 +79,6 @@ rodar o backend, depois
 
 rodar ngrok:
 
-ngrok http https://localhost:8081 --domain bull-heroic-bull.ngrok-free.app
+ngrok http http://localhost:8081 --domain bull-heroic-bull.ngrok-free.app
 
 req do front tem que ser: /projeto/project1

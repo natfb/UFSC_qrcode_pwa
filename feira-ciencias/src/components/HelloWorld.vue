@@ -9,8 +9,7 @@
 
     <qrcode-stream
       v-if="scanning"
-      :constraints="{ facingMode: { exact: 'environment' } }"
-      @decode="onDecode"
+      @detect="onDecode"
       @init="onInit"
       class="w-full max-w-md mx-auto"
     >
@@ -31,6 +30,7 @@ function startScan() {
 
 async function onDecode(text) {
   scanning.value = false
+  console.log(text)
   try {
     const response = await fetch(text, {
       method: 'GET',
