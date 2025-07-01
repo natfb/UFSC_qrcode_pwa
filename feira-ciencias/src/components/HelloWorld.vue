@@ -53,11 +53,11 @@ function startScan() {
 
 async function onDecode(text) {
   scanning.value = false
-  console.log(text)
+  console.log(text[0].rawValue)
   try {
-    const response = await fetch(text, {
+    const response = await fetch(`http://localhost:8081/projeto/${text[0].rawValue}`, {
       method: 'GET',
-      credentials: 'include'
+      
     })
     if (!response.ok) throw new Error(`HTTP ${response.status}`)
     const data = await response.json()
