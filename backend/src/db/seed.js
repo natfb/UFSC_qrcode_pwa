@@ -7,7 +7,7 @@ const projetos = [
         participants: ['Sofia Rocha', 'Tiago Alves'],
         category: 'Química/Geografia',
         materials: ['Bicarbonato de Sódio', 'Vinagre', 'Detergente', 'Corante Alimentício', 'Modelo de Vulcão'],
-        image: '../public/images/project1.jpg',
+        image: '/images/project1.jpg',
         avaliacao: null
     },
     {

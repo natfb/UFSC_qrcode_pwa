@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.use(express.static(path.join(__dirname, '..', 'public', 'dist')));
+app.use(express.static(__dirname + "../../feira-ciencias/dist/"));
 
 // venvs
 const BACKEND_PORT = process.env.BACKEND_PORT || 8081;

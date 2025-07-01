@@ -19,10 +19,14 @@
     <div v-if="project" class="max-w-xl w-full mx-auto p-6 bg-white shadow rounded">
       <h1 class="text-2xl font-semibold mb-4">{{ project.title }}</h1>
       <img
-        :src="project.image"
+        :src="`http://localhost:8081${project.image}`"
         :alt="project.title"
         class="w-full h-64 object-cover rounded mb-4"
       />
+      <!-- se o front entiver em um servidor diferente -->
+      <!-- :src="`http://localhost/images/${project.image}`" -->
+       <!-- se o front entiver no mesmo servidor -->
+      <!-- //:src="project.image" -->
       <p class="mb-4">{{ project.description }}</p>
 
       <h2 class="text-lg font-medium mb-2">Materiais</h2>
@@ -55,7 +59,10 @@ async function onDecode(text) {
   scanning.value = false
   console.log(text[0].rawValue)
   try {
+    // se o front estiver em outro servidor:
     const response = await fetch(`http://localhost:8081/projeto/${text[0].rawValue}`, {
+    // se o front estiver no mesmo servidor: 
+    // const response = await fetch(`/projeto/${text[0].rawValue}`, { 
       method: 'GET',
       
     })
