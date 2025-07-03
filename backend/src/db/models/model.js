@@ -40,6 +40,10 @@ const projetosModel = new mongoose.Schema({
     num_de_avaliacoes: {
         type: Number,
         default: null,
+    },
+    somas_das_avaliacoes: {
+        type: Number,
+        default: null,
     }
 });
 

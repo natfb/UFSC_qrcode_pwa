@@ -57,7 +57,7 @@ const projetos = [
         participants: ['Isabela Xavier', 'Daniel Pereira'],
         category: 'Física/Tecnologia',
         materials: ['Fio de Cobre Esmaltado', 'Bateria AA', 'Imã de Neodímio', 'Clipes de Papel', 'Base de Madeira'],
-        image: '/images/project5.jpeg',
+        image: '/images/project6.jpeg',
         avaliacao: null
     }
 ]

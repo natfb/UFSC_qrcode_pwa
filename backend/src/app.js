@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.use(express.static(__dirname + "../../feira-ciencias/dist/"));
+app.use(express.static(path.join(path.join(__dirname, '..', '..', 'feira-ciencias', 'dist'))));
 
 // venvs
 const BACKEND_PORT = process.env.BACKEND_PORT || 8081;
@@ -56,7 +56,7 @@ app.use(cors({
 
 // serve o frontend 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'dist', 'index.html'));
+  res.sendFile(path.join(path.join(__dirname, '..', '..', 'feira-ciencias', 'dist', 'index.html')));
 });
 
 // retorna informacoes de um projeto
@@ -81,18 +81,25 @@ app.get('/projeto/:id', async (req, res) => {
 
 // post avaliacao
 // calcula a media de avaliacoes de um projeto
-app.post('/avaliar/:id/:nota', async (req, res) => {
-    const { id } = req.params[0]
-    const { nota } = req.params[1]
-    console.log(id, nota)
-
+app.post('/avaliar', async (req, res) => {
+    console.log(req.body)
+    const { id: id, nota: nota } = req.body;
+    
+    console.log(`Recebendo avaliação para o projeto com ID: ${id} e nota: ${nota}`);
     try {
         const project = await Projeto.findOne({ _id: id });
 
         if (project) {
             project.num_de_avaliacoes += 1;
-            project.avaliacao =  (project.avaliacao + int(nota)) / project.num_de_avaliacoes            
-            res.status(200)
+            project.somas_das_avaliacoes = (project.somas_das_avaliacoes || 0) + parseInt(nota, 10);
+            project.avaliacao =  (project.somas_das_avaliacoes) /  project.num_de_avaliacoes 
+            
+            await project.save();
+            
+            res.status(200).json({ 
+                message: 'Avaliação registrada com sucesso!',
+                project: project 
+            });
         } else {
             console.log(`Projeto com ID '${id}' não encontrado.`);
             res.status(404).json({ message: `Projeto com ID '${id}' não encontrado.` });
