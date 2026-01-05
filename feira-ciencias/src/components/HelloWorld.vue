@@ -41,10 +41,12 @@
       </ul>
       <p><strong>Avaliação:</strong> {{ project.avaliacao }}</p>
       <p class="text-sm text-gray-600"><strong>Categoria:</strong> {{ project.category }}</p>
+      
       <div v-if="userJaAvaliou" class="mt-4 p-4 bg-green-100 text-green-800 rounded">
         <p class="font-bold">Obrigado por avaliar este projeto!</p>
         <p>Sua avaliação foi registrada.</p>
       </div>
+      
      <div v-else class="d-flex justify-content-center align-items-center">
   
         <input 
